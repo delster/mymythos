@@ -1,21 +1,24 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import Logo from '@elements/logo'
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <h1>
-      <Link to="/">{siteTitle}</Link>
-    </h1>
-  </header>
+export default () => (
+  <StyledHeader id="main-header">
+    <LogoWrap>
+      <Link to="/">
+        <Logo />
+      </Link>
+    </LogoWrap>
+  </StyledHeader>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+const StyledHeader = styled.header.attrs(props => ({ id: "main-header" }))`
+  background-color: #242424;
+  padding: 1.5rem;
+`
+const LogoWrap = styled.div.attrs(props => ({id: "site-logo"}))`
+  margin: 0 auto;
+  max-width: 400px;
+  width: 95%;
+`
