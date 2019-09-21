@@ -1,12 +1,12 @@
-import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import "normalize.css"
-import "typeface-open-sans"
-import Header from "./partials/header"
-import Footer from "./partials/footer"
+import 'normalize.css'
+import 'typeface-open-sans'
+import Header from '@partials/header'
+import Footer from '@partials/footer'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,6 +31,12 @@ const Layout = ({ children }) => {
   )
 }
 
+const sansFallbacks = `"Helvetica Neue", Verdana, Helvetica, Arial, sans-serif`
+
+const GlobalStyle = createGlobalStyle`
+  * { font-family: "Open Sans", ${sansFallbacks}; }
+`
+
 const FlexWrap = styled.div`
   display: flex;
   flex-flow: column;
@@ -38,12 +44,6 @@ const FlexWrap = styled.div`
 
   & main {
     flex: 1 1 100%;
-  }
-`
-
-const GlobalStyle = createGlobalStyle`
-  html,body {
-    font-family: "Open Sans", "Helvetica Neue", Verdana, Helvetica, Arial, sans-serif;
   }
 `
 
