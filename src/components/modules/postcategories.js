@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import MeaningHex from '@elements/meaning-hex'
+
 export default () => (
   <StyledCats>
     <CategoryList>
       {CATS.map(cat => (
-        <CategoryListItem title={cat.title} img={cat.imgSrc} />
+        <MeaningHex title={cat.title} img={cat.imgSrc} />
       ))}
     </CategoryList>
   </StyledCats>

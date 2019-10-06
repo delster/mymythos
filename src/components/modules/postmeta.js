@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => (
+export default ({ author, categories, collectors, date }) => (
   <PostMeta>
-    <AuthorName>Evening Star</AuthorName>
-    <AuthorPFP />
-    <PostDate>{`${new Date()}`}</PostDate>
-    <span>, Personal Myths</span>
+    <AuthorName>{author.name}</AuthorName>
+    <AuthorPFP src={author.avatar.url} />
+    <PostDate> {formatDate(date)} </PostDate>
+    <PostCats> {categories.map(c => `, ${c.name}`)} </PostCats>
   </PostMeta>
 )
+
+const formatDate = date => {
+  const d = new Date(date)
+  return `${d.toLocaleString('default', { month: 'long' })}, ${d.getDate()} ${d.getUTCFullYear()}`
+}
 
 const PostMeta = styled.section`
   display: flex;
@@ -19,6 +24,9 @@ const AuthorName = styled.span`
   text-transform: uppercase;
 `
 const AuthorPFP = styled.img`
-  margin-top: -50%;
+  margin: -3.5em 1em -1em;
+  border-radius: 50%;
+  border: 6px solid white;
 `
 const PostDate = styled.span``
+const PostCats = styled.span``

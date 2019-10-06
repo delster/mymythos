@@ -8,18 +8,12 @@ export default () => (
     <SEO title="Home" />
     <h1>Nothing to see here (yet). Check out the WIP page templates:</h1>
     <ul>
-      <li>
-        <Link to="/dev/search">Home/Search</Link>
-      </li>
-      <li>
-        <Link to="/dev/meanings">Meanings</Link>
-      </li>
-      <li>
-        <Link to="/dev/post">Post</Link>
-      </li>
-      <li>
-        <Link to="/dev/profile">Profile</Link>
-      </li>
+      <LiLink to="/dev/search">Home/Search</LiLink>
+      <LiLink to="/dev/meanings">Meanings</LiLink>
+      <LiLink to="/dev/post">Post</LiLink>
+      <LiLink to="/dev/profile">Profile</LiLink>
     </ul>
   </Layout>
 )
+
+const LiLink = props => <li> <Link {...props} /> </li>
