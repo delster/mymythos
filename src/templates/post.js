@@ -9,8 +9,8 @@ import PostMeta from '@modules/postmeta'
 import Shareables from '@modules/shareables'
 import SEO from '@utils/seo'
 
-export default ({ data }) => {
-  const post = data.wp.postBy
+export default props => {
+  const { post } = props.data.wpgraphql
   const { author, categories, featuredImage, acfFields } = post
   const { collectors } = acfFields
 
@@ -28,7 +28,6 @@ export default ({ data }) => {
       <PostContent content={post.content} />
       <PostCategories />
       <Shareables />
-      <pre>Collectors: {JSON.stringify(collectors)}</pre>
     </Layout>
   )
 }
@@ -41,10 +40,10 @@ const FeaturedImage = styled.img`
   object-position: center;
 `
 
-export const query = graphql`
-  {
+export const pageQuery = graphql`
+  query GET_POST($id: ID!) {
     wpgraphql {
-      postBy(slug: "harkonnen") {
+      post(id: $id) {
         ...PostFields
         author {
           ...AuthorFields

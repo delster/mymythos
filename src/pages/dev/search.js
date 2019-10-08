@@ -1,36 +1,28 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaEye } from 'react-icons/fa'
 import Layout from '@components/layout'
 import SEO from '@utils/seo'
 
-export default () => (
-  <Layout>
-    <SEO title="Search" />
-    <SearchBar />
-    <SortFilter />
-    <MasonryResults />
-  </Layout>
-)
+import SearchBarForm from '@components/search/form'
+import SearchResults from '@components/search/results'
 
-const SearchBar = () => (
-  <SearchBarWrap>
-    <SearchBarInput placeholder="Search" />
-  </SearchBarWrap>
-)
-const SearchBarWrap = styled.div`
-  padding: 12px 0;
-`
-const SearchBarInput = styled.input`
-  background-color: #ccc;
-  display: block;
-  margin: 0 auto;
-  padding: 0.5em 2em;
-  width: 90%;
-  max-width: 1200px;
-  border: none;
-  outline: none;
-`
+export default () => {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearchQueryUpdate = e => setSearchQuery(e.target.value)
+
+  return (
+    <Layout>
+      <SEO title="Search" />
+      <SearchBarForm
+        handleSubmit={e => e.preventDefault()}
+        handleInputChange={handleSearchQueryUpdate}
+      />
+      <SortFilter />
+      {searchQuery && <SearchResults searchQuery={searchQuery} />}
+    </Layout>
+  )
+}
 
 const SortFilter = () => {
   const sortFilters = ['All Mythos', 'My Mythos', 'Patrons', 'Collections']
@@ -76,37 +68,3 @@ const SortFilterListItem = styled.li`
     background-color: white;
   }
 `
-
-const MasonryResults = styled.section``
-const dummyResults = [
-  {
-    title: 'I find all my answers',
-    excerpt: 'Lorem ipsum dolor sit amet..',
-    featImgSrc: 'https://via.placeholder.com/400x300',
-    catIcon: <FaEye />,
-  },
-  {
-    title: 'A Deck of cards',
-    excerpt: 'Lorem ipsum dolor sit amet..',
-    featImgSrc: 'https://via.placeholder.com/400x300',
-    catIcon: <FaEye />,
-  },
-  {
-    title: 'Women were birds',
-    excerpt: 'Lorem ipsum dolor sit amet..',
-    featImgSrc: 'https://via.placeholder.com/400x300',
-    catIcon: <FaEye />,
-  },
-  {
-    title: 'Secret Garden',
-    excerpt: 'Lorem ipsum dolor sit amet..',
-    featImgSrc: 'https://via.placeholder.com/400x300',
-    catIcon: <FaEye />,
-  },
-  {
-    title: 'I am the Big Bang',
-    excerpt: 'Lorem ipsum dolor sit amet..',
-    featImgSrc: 'https://via.placeholder.com/400x300',
-    catIcon: <FaEye />,
-  },
-]

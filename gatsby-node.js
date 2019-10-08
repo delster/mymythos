@@ -1,4 +1,9 @@
 const path = require('path')
+const createCats  = require(`./wp/createCats`)
+const createPages = require(`./wp/createPages`)
+const createPosts = require(`./wp/createPosts`)
+const createTags  = require(`./wp/createTags`)
+const createUsers = require(`./wp/createUsers`)
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
@@ -14,4 +19,12 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
   })
+}
+
+exports.createPages = async ({ actions, graphql }) => {
+  await createCats( { actions, graphql })
+  await createPages({ actions, graphql })
+  await createPosts({ actions, graphql })
+  await createTags( { actions, graphql })
+  await createUsers({ actions, graphql })
 }
