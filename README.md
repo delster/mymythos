@@ -6,6 +6,19 @@ This is the JAMstack front-end for a WP backend.
 
 Don't, just visit the live site.
 
+or if you must...
+
+### Requirements
+
+You'll need to have `yarn` and `gatsby-cli` installed globally. You could use `npm`, `pnpm`, etc but then you're on your own.
+
+### Basic Setup
+
+- `git clone https://github.com/delster/mymythos.git`
+- `cd mymythos`
+- `yarn`
+- `gatsby develop`
+
 ## Where?
 
 If the badge below says "Success", you can visit [the dev site on Netlify](https://mymythos.netlify.com/).
