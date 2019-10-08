@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Layout from '@components/layout'
 import SEO from '@utils/seo'
 
-import SearchBarForm from '@components/search/form'
-import SearchResults from '@components/search/results'
+import SearchBarForm from '@components/Search/form'
+import SearchResults from '@components/Search/results'
 
 export default () => {
   const [searchQuery, setSearchQuery] = useState('')
