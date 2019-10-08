@@ -6,6 +6,14 @@ This is the JAMstack front-end for a WP backend.
 
 Don't, just visit the live site.
 
+or if you must...
+
+### Basic Setup
+- git clone https://github.com/delster/mymythos.git
+- cd mymythos
+- yarn
+- gatsby develop
+
 ## Where?
 
 If the badge below says "Success", you can visit [the dev site on Netlify](https://mymythos.netlify.com/).
