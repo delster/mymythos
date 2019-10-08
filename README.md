@@ -8,11 +8,16 @@ Don't, just visit the live site.
 
 or if you must...
 
+### Requirements
+
+You'll need to have `yarn` and `gatsby-cli` installed globally. You could use `npm`, `pnpm`, etc but then you're on your own.
+
 ### Basic Setup
-- git clone https://github.com/delster/mymythos.git
-- cd mymythos
-- yarn
-- gatsby develop
+
+- `git clone https://github.com/delster/mymythos.git`
+- `cd mymythos`
+- `yarn`
+- `gatsby develop`
 
 ## Where?
 
