@@ -17,7 +17,13 @@ export default props => {
   return (
     <Layout>
       <SEO title="Post" />
-      <FeaturedImage src={featuredImage.sourceUrl} />
+      <FeaturedImage
+        src={
+          featuredImage !== null ?
+          featuredImage.sourceUrl :
+          'https://via.placeholder.com/1920x600.png?text=PLACEHOLDER'
+        }
+      />
       <PostMeta
         author={author}
         categories={categories.nodes}
